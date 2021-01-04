@@ -1,6 +1,8 @@
 package com.zamaflow.strings;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,12 +12,14 @@ public class ArrayAndStringsTests {
     private Unique unique;
     private StringPermutation stringPermutation;
     private StringUrlfy stringUrlfy;
+    private OneAwayDetector oneAwayDetector;
 
     @Before
     public void setup() {
         unique = new Unique();
         stringPermutation = new StringPermutation();
         stringUrlfy =  new StringUrlfy();
+        oneAwayDetector = new OneAwayDetector();
     }
 
     @Test
@@ -46,8 +50,28 @@ public class ArrayAndStringsTests {
 
     @Test
     public void givenStringWithSpacesShouldReturnUrlfiedString() {
-        String s = "";
-        assertEquals(stringUrlfy.urlfy(s), "");
+        String s = "Everyone loves ray";
+        assertEquals(stringUrlfy.urlfy(s, 10), "Everyone%20loves%20ray");
     }
 
+    @Test
+    public void givenStringWithSpacesShouldReturnUrlfiedStringNoReplace() {
+        String s = "a b";
+        assertEquals(stringUrlfy.urlfyNoReplace(s, 5), "a%20b");
+    }
+
+    @Test
+    public void given2StringsShouldReturnOneAwayAsTrue() {
+        assertTrue(oneAwayDetector.oneAway("abc", "ab"));
+    }
+
+    @Test
+    public void given2StringsShouldReturnOneAwayAsFalse() {
+        assertFalse(oneAwayDetector.oneAway("abc", "a"));
+    }
+
+    @Test
+    public void given2DifferentLengthStringsShouldReturnOneAwayAsTrue() {
+        assertTrue(oneAwayDetector.oneAway("abcd", "acd"));
+    }
 }
