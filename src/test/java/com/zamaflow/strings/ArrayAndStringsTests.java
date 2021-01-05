@@ -13,6 +13,7 @@ public class ArrayAndStringsTests {
     private StringPermutation stringPermutation;
     private StringUrlfy stringUrlfy;
     private OneAwayDetector oneAwayDetector;
+    private Compressed compressed;
 
     @Before
     public void setup() {
@@ -20,6 +21,7 @@ public class ArrayAndStringsTests {
         stringPermutation = new StringPermutation();
         stringUrlfy =  new StringUrlfy();
         oneAwayDetector = new OneAwayDetector();
+        compressed = new Compressed();
     }
 
     @Test
@@ -73,5 +75,11 @@ public class ArrayAndStringsTests {
     @Test
     public void given2DifferentLengthStringsShouldReturnOneAwayAsTrue() {
         assertTrue(oneAwayDetector.oneAway("abcd", "acd"));
+    }
+
+    @Test
+    public void givenStringShouldReturnCompressedVersion() {
+        assertEquals(compressed.compress("abbbc"), "ab3c");
+        assertEquals(compressed.compress("abc"), "abc");
     }
 }

@@ -35,8 +35,8 @@ public class OneAwayDetector {
 				} else {
 					newChars[i] = biggerChars[i];
 				}
-				System.out.println("newChars: " + String.valueOf(newChars));
-				System.out.println("inserts: " + inserts);
+				// System.out.println("newChars: " + String.valueOf(newChars));
+				// System.out.println("inserts: " + inserts);
 				if (inserts>1) {
 					return false;
 				}
