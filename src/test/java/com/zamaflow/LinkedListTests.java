@@ -63,5 +63,26 @@ public class LinkedListTests {
 
         assertEquals(adder.sum(s1, s2), sum);
     }
+
+    @Test
+    public void givenCyclickLinkedListShouldReturnIsCyclicTrue() {
+        CyclickLinkedListDetector cyclickLinkedListDetector = new CyclickLinkedListDetector();
+        Node n1 = new Node(1);
+        Node n2 = new Node(2);
+        n1.next = n2;
+        Node n3 = new Node(3);
+        n2.next = n3;
+        Node n4 = new Node(4);
+        n3.next = n4;
+        Node n5 = new Node(5);
+        n4.next =n5;
+        n5.next = n3;
+        Node head = n1;
+        assertEquals(cyclickLinkedListDetector.isCyclic(null), false);
+        assertEquals(cyclickLinkedListDetector.isCyclic(head), true);
+
+    }
+
+    
     
 }
