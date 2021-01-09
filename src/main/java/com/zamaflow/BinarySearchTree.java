@@ -65,7 +65,6 @@ public class BinarySearchTree {
         if (root != null) { 
             StringBuilder b = new StringBuilder();
             b.append(inorderRec(root.left)); 
-            System.out.println(root.key); 
             b.append(root.key);
             b.append(inorderRec(root.right)); 
             return b.toString();
