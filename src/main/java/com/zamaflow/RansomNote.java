@@ -1,26 +1,40 @@
 package com.zamaflow;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class RansomNote {
 
-	public boolean canWrite(String ransomNote, String letters) {
-        Set<Integer> usedLetters = new HashSet<>();
-        boolean[] ransomNotePosFilled = new boolean[ransomNote.length()];
-        for (int i=0;i<ransomNote.length(); i++) {
-            for (int j=0;j<letters.length(); j++) {
-                if (!ransomNotePosFilled[i] && ransomNote.charAt(i) == letters.charAt(j) && !usedLetters.contains(j)) {
-                    usedLetters.add(j);
-                    ransomNotePosFilled[i] = true;
-                }
-            
+    public boolean canWrite(String ransomNote, String letters) {
+        HashMap<String, Integer> noteMap = map(ransomNote);
+        HashMap<String, Integer> letterMap = map(letters);
+        
+        for (String k: noteMap.keySet()) {
+            if (!letterMap.containsKey(k)) {
+                return false;
             }
-            if (!ransomNotePosFilled[i]) {
+            int countNote = noteMap.get(k);
+            int countLetter = letterMap.get(k);
+            if (countNote > countLetter) {
                 return false;
             }
         }
-		return true;
-	}
+        return true;
+    }
+
+    public HashMap<String, Integer> map(String s) {
+        HashMap<String, Integer> m = new HashMap<>();
+        s = s.replaceAll("\\s+", "");
+        for (int i = 0; i < s.length(); i++) {
+            String s1 = String.valueOf(s.charAt(i));
+            if (m.get(s1) != null) {
+                m.put(s1, m.get(s1) + 1);
+            } else {
+                m.put(s1, 1);
+            }
+        }
+        return m;
+    }
 
 }
