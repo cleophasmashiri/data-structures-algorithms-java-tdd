@@ -1,8 +1,6 @@
-package com.zamaflow;
+package com.zamaflow.datastructures;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 public class RansomNote {
 

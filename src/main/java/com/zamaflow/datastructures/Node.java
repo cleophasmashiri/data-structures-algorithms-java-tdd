@@ -1,4 +1,4 @@
-package com.zamaflow;
+package com.zamaflow.datastructures;
 
 public class Node {
 

@@ -1,4 +1,4 @@
-package com.zamaflow.strings;
+package com.zamaflow.datastructures;
 
 import java.util.Arrays;
 
