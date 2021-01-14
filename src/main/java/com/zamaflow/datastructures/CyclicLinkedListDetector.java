@@ -1,6 +1,6 @@
 package com.zamaflow.datastructures;
 
-public class CyclickLinkedListDetector {
+public class CyclicLinkedListDetector {
 
     public boolean isCyclic(Node head) {
         if (head == null) {

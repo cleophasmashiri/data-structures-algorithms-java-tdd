@@ -66,7 +66,7 @@ public class LinkedListTests {
 
     @Test
     public void givenCyclickLinkedListShouldReturnIsCyclicTrue() {
-        CyclickLinkedListDetector cyclickLinkedListDetector = new CyclickLinkedListDetector();
+        CyclicLinkedListDetector cyclickLinkedListDetector = new CyclicLinkedListDetector();
         Node n1 = new Node(1);
         Node n2 = new Node(2);
         n1.next = n2;

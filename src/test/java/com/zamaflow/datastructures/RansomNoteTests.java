@@ -12,7 +12,13 @@ public class RansomNoteTests {
     @Test
     public void givenStringReturnHashMapQuiivalence() {
         RansomNote ransomNote = new RansomNote();
-        assertEquals(ransomNote.map("Pa y"), new HashMap<String, Integer>(){{
+        assertEquals(ransomNote.map("Pa y"), new HashMap<String, Integer>(){
+            /**
+            *
+            */
+            private static final long serialVersionUID = 1L;
+
+            {
             put("P", 1);
             put("a", 1);
             put("y", 1);
@@ -21,9 +27,7 @@ public class RansomNoteTests {
 
     @Test
     public void givenRansomNoteAndLettersShouldReturnCanWriteTrueOrFalse() {
-
         RansomNote ransomNote = new RansomNote();
-
         assertTrue(ransomNote.canWrite("Pay", "Payhfhf"));
 
     }
