@@ -1,7 +1,6 @@
 package com.zamaflow.datastructures;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +31,6 @@ public class HashTableTests {
 
        assertEquals(hashTable.get("Rosa"), "Rosa Mashiri");
        assertEquals(hashTable.get("Peter"), "Peter Mashiri");
-
     }
     
 }

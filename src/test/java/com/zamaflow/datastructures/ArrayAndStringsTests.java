@@ -3,7 +3,6 @@ package com.zamaflow.datastructures;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,6 +34,18 @@ public class ArrayAndStringsTests {
         String s = "abcc";
         assertEquals(unique.isUnique(s), false);
     }
+    @Test
+    public void givenUniqueWithExtraDataStructureStringShouildReturnTrueIfUniqueCharsTest() {
+        String s = "abc";
+        assertEquals(unique.isUniqueWithNoExtraDataStructure(s), true);
+    }
+
+    @Test
+    public void givenNonUniqueWithExtraDataStructureStringShouildReturnFalseIfUniqueCharsTest() {
+        String s = "abcc";
+        assertEquals(unique.isUniqueWithNoExtraDataStructure(s), false);
+    }
+
 
     @Test
     public void givenStringsOfUnequalLengthsShouldReturnFalseTest() {

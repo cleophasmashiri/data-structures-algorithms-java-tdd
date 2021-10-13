@@ -3,7 +3,7 @@ package com.zamaflow.datastructures;
 public class StringUrlfy {
 
     public String urlfy(String s, int finalStringLength) {
-        s = s.replace(" ", "%20");
+        s = s.replaceAll(" ", "%20");
         return s;
     }
 

@@ -20,7 +20,6 @@ public class HashTable {
             this.value = value;
             this.next = null;
         }
-
     }
 
     public void put(String k, String v) {
@@ -51,13 +50,11 @@ public class HashTable {
     }
 
     public int getIndex(String k) {
-
         if (k.equals("Rosa") || k.equals("Peter")) {
             return 4;
         }
         int h = Math.abs(k.hashCode());
         int i = h % initialSize;
-        System.out.println(i);
         return i;
     }
 
